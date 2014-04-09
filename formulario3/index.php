@@ -16,8 +16,10 @@ and open the template in the editor.
         <p>Fecha de nacimiento: <input type="date" name="fechanacimiento" /></p>
         <p>Email: <input type="text" name="email" /></p>
         <p>Sexo: </p>
-        <p> Mujer<input type="radio" name="sexo" value="Mujer" />
-            Hombre<input type="radio" name="sexo" value="Hombre" /></p>
+        <p>
+            Mujer<input type="radio" name="sexo" value="Mujer" />
+            Hombre<input type="radio" name="sexo" value="Hombre" />
+        </p>
         <p>Enviar: <input type="submit" value="enviar" /></p>
         </form>
     </body>
