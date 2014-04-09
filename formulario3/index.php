@@ -20,10 +20,9 @@ and open the template in the editor.
             Mujer<input type="radio" name="sexo" value="Mujer" />
             Hombre<input type="radio" name="sexo" value="Hombre" />
         </p>
-        <p>Familia Numerosa:    <input type="checkbox" name="familianumerosa" value="Si"</>Si
-                                <input type="checkbox" name="familianumerosa" value="No"</>No
+        <p>Familia Numerosa:    <input type="checkbox" name="familianumerosa" value="Si"</>
         </p>
-        <p>Enviar: <input type="submit" value="enviar" /></p>
+        <p><input type="submit" value="enviar" /></p>
         </form>
     </body>
 </html>
