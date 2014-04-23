@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <div>Formulario1</div>
+        <div>Formulario 3</div>
         <form action="recoge.php" method="GET"> 
         <p>Nombre: <input type="text" name="nombre" /></p>
         <p>Fecha de nacimiento: <input type="date" name="fechanacimiento" /></p>
