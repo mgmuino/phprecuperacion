@@ -25,7 +25,7 @@ function validarEmail($email) {
 $nombre = (isset($_REQUEST['nombre']))?$_REQUEST['nombre']:"No Definido";
 $fechanacimiento = (isset($_REQUEST['fechanacimiento']))?$_REQUEST['fechanacimiento']:"No Definido";
 $email = $_REQUEST['email'];
-$sexo = (isset($_REQUEST['sexo']))?$_REQUEST['sexo']:"No Definido";
+$sexo = (isset($_REQUEST['sexo']))?$_REQUEST['sexo']:"ERROR SEXO OBLIGATORIO";
 $familianumerosa = (isset($_REQUEST['familianumerosa']))?$_REQUEST['familianumerosa']:"No";
 $edad = edad($fechanacimiento);
 
@@ -35,14 +35,19 @@ if (!validarEmail($email)){
 } else {
     $erroremail=""; //No hay error
 }
-//Validar fecha de nacimiento
+//Validar edad
+if ($edad<18){
+    $erroredad = "(ERROR EDAD)";//hay error
+}else {
+    $erroredad ="";//no hay error
+}
 
 
 $nombre= limpiarEntradaTexto($nombre);
 
 
 print "<p>Su nombre limpio es           $nombre</p>"; 
-print "<p>Su fecha de nacimiento es     $fechanacimiento. (Edad $edad)</p>"; 
+print "<p>Su fecha de nacimiento es     $fechanacimiento. (Edad $edad)$erroredad</p>"; 
 print "<p>Su email es                   $email.$erroremail</p>";
 print "<p>Su sexo es                    $sexo</p>";
 print "<p>Familia Numerosa              $familianumerosa</p>";
