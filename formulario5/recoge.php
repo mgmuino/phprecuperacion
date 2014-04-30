@@ -30,30 +30,56 @@ function validarnombre($nombre){
 $nombre = (isset($_REQUEST['nombre']))?$_REQUEST['nombre']:"No Definido";
 $fechanacimiento = (isset($_REQUEST['fechanacimiento']))?$_REQUEST['fechanacimiento']:"No Definido";
 $email = $_REQUEST['email'];
-$sexo = (isset($_REQUEST['sexo']))?$_REQUEST['sexo']:"ERROR SEXO OBLIGATORIO";
+//$sexo = (isset($_REQUEST['sexo']))?$_REQUEST['sexo']:"Error . Debe usted seleccionar sexo";
+$sexo = $_REQUEST['sexo'];
 $familianumerosa = (isset($_REQUEST['familianumerosa']))?$_REQUEST['familianumerosa']:"No";
 $edad = edad($fechanacimiento);
 
+//Variable para indicar si hay errrores
+$hayErrores = False;
+$errores="";
+
 //Validar nombre
-  $nombre= limpiarEntradaTexto($nombre);  
-  if (!validarnombre($nombre)){
-        $errornombre="(ERROR EN NOMBRE)";//Hay error
-        }else{
-        $errornombre="";
-        }
+$nombre= limpiarEntradaTexto($nombre);  
+if (!validarnombre($nombre)){
+    $errornombre="(ERROR EN NOMBRE)";//Hay error
+    $hayErrores =True;
+    $errores .= "&errornombre";
+} else {
+    $errornombre="";
+}
 //Validar EMAIL
 if (!validarEmail($email)){
     $erroremail= "(ERROR EMAIL)"; //Hay error
+    $hayErrores =True;
+    $errores .= "&erroremail";
 } else {
     $erroremail=""; //No hay error
 }
 //Validar edad
 if ($edad<18){
     $erroredad = "(ERROR EDAD)";//hay error
+    $hayErrores =True;
+    $errores .= "&erroredad";
 }else {
     $erroredad ="";//no hay error
 }
+//Validar Sexo
+if ($sexo=="Selecciona"){
+    $errorsexo= "Error sexo no definido"; //Hay error
+    $sexo="";
+    $hayErrores =True;
+    $errores .= "&errorsexo";
+} else {
+    $errorsexo=""; //No hay error
+}
 
+if ($hayErrores) {
+    //echo "Hay errores...<br>";
+    //echo $_SERVER['QUERY_STRING'];
+    $url = "index.php?".$_SERVER['QUERY_STRING'].$errores;
+    header("Location: ".$url);
+}
 
 $nombre= limpiarEntradaTexto($nombre);
 
