@@ -37,7 +37,6 @@ $errores="";
 
 //Validar EMAIL
 if (!validarEmail($email)){
-    $erroremail= "(ERROR EMAIL)"; //Hay error
     $hayErrores =True;
     $errores .= "&erroremail";
 } else {
@@ -46,7 +45,6 @@ if (!validarEmail($email)){
 
 //Validar PASSWORD
 if (!validarPassword($password)){
-    $errorpassword= "(ERROR PASSWORD)";
     $hayErrores =True;
     $errores .="&errorpassword";
 } else {
