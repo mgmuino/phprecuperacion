@@ -30,7 +30,10 @@
                         echo "<tr>";
                         echo "<td>".$registro['id']."</td>";
                         echo "<td align=right>".$registro['nombre_completo']."</td>";
-                        echo "<td align=right>".$registro['fecha_nacimiento']."</td>";
+                        echo "<td>";
+                        $fechanac = new DateTime($registro['fecha_nacimiento']);
+                        echo $fechanac->format('d-m-Y');
+                        echo "</td>";
                         echo "<td align=right>".$registro['ciclo']."</td>";
                         echo "<td align=right>".$registro['nota_media']."</td>";
                     }
