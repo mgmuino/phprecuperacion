@@ -15,12 +15,14 @@ function validarNombre($nombre){
      return preg_match($patron, $nombre);
 }
 
-$nombre = (isset($_REQUEST['nombre']))?$_REQUEST['nombre']:"No Definido";
+$nombre = (isset($_REQUEST['nombre_completo']))?$_REQUEST['nombre_completo']:"No Definido";
 $fecha_nacimiento = (isset($_REQUEST['fecha_nacimiento']))?$_REQUEST['fecha_nacimiento']:"No Definido";
 $ciclo = (isset($_REQUEST['ciclo']))?$_REQUEST['ciclo']:"No Definido";
 $nota_media = (isset($_REQUEST['nota_media']))?$_REQUEST['nota_media']:"No Definido";
 
-
+//Variable para indicar si hay errrores
+$hayErrores = False;
+$errores="";
 
 //Validar nombre
 $nombre= limpiarEntradaTexto($nombre);  

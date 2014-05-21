@@ -7,12 +7,12 @@ require_once 'conecta.php';
         <title>Alumnos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-    </head>
-    <ul>         
-        <li><a href="formulario_alta.php">Alta Alumno</a></li>
-    </ul>
+    </head>    
     <body>
-        <div>Listado de Alumnos</div>
+        <h1>Listado de Alumnos</h1>
+        <ul>         
+            <li><a href="formulario_alta.php">Alta Alumno</a></li>
+        </ul>        
         <?php
             $bd = conectaBd();
             $consulta = "SELECT * FROM alumno order by Id";
