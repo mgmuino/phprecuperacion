@@ -1,5 +1,5 @@
 <?php
-//Recoger datos de vuelta silos hay
+//Recoger datos de vuelta si los hay
 $nombre=(isset($_REQUEST['nombre']))?$_REQUEST['nombre']:"";
 $fechanacimiento=(isset($_REQUEST['fechanacimiento']))?$_REQUEST['fechanacimiento']:"";
 $email=(isset($_REQUEST['email']))?$_REQUEST['email']:"";
