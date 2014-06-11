@@ -41,8 +41,8 @@ require_once 'conecta.php';
                             echo "</td>";
                             echo "<td align=right>".$registro['ciclo']."</td>";
                             echo "<td align=right>".$registro['nota_media']."</td>";
-                            //$irBorrar = "cborrar.php?IdProducto=".$registro['IdProducto'];
-                            //echo "<td><a href=".$irBorrar.">Borrar</a></td>";
+                            $irBorrar = "cborrar.php?id=".$registro['id'];
+                            echo "<td><a href=".$irBorrar.">Borrar</a></td>";
                         }
                         echo "</table>";
                 }
