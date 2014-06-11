@@ -15,14 +15,14 @@ function validarNombre($nombre){
      return preg_match($patron, $nombre);
 }
 
- function edad($fecha_nacimiento) {
+ /*function validarEdad($fecha_nacimiento) {
    $date1 = new DateTime($fecha_nacimiento); 
    $date2 = new DateTime("now"); 
    $interval = $date1->diff($date2); 
    $diff = $interval->format('%y'); 
    return $diff;  
 }
-
+*/
 function validarNota($nota_media){
      if (is_numeric($nota_media)) {
          $nota = intval($nota_media);
@@ -48,9 +48,9 @@ if (!validarNombre($nombre)){
 } else {
     $errornombre="";
 }
-
+/*
 //Validar edad
-$edad = edad($fecha_nacimiento);
+$edad = validarEdad($fecha_nacimiento);
 if ($edad<18){
     $errorfecha = "(ERROR EDAD)";//hay error
     $hayErrores =True;
@@ -58,7 +58,7 @@ if ($edad<18){
 }else {
     $errorfecha ="";//no hay error
 }
-
+*/
 //Validar ciclo
 $ciclo= limpiarEntradaTexto($ciclo);  
 

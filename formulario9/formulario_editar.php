@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once 'conecta.php';
-require_once 'proceso_alta.php';
     // Estructura: campos del formulario
 $_SESSION['datos'] = (isset($_SESSION['datos']))?
             $_SESSION['datos']:Array('','');
@@ -48,7 +47,7 @@ if (!$resultado) {
     </head>
     <body>
         <div>Editar Alumno</div>
-        <form action="grabar_editar_alumno.php" method="GET">
+        <form action="editar.php" method="GET">
             <div>Nombre completo: <input type="text" name="nombre_completo" 
                               value="<?php echo $_SESSION['datos'][0]; ?>"/>
             </div>
