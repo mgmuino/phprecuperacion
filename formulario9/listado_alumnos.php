@@ -43,6 +43,8 @@ require_once 'conecta.php';
                             echo "<td align=right>".$registro['nota_media']."</td>";
                             $irBorrar = "cborrar.php?id=".$registro['id'];
                             echo "<td><a href=".$irBorrar.">Borrar</a></td>";
+                            $irEditar="formulario_editar_alumno.php?id=".$registro['id'];
+                            echo "<td><a href=".$irEditar.">Editar</a></td>";
                         }
                         echo "</table>";
                 }

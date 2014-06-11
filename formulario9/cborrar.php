@@ -35,7 +35,7 @@ if (!$resultado){
        $registro = $resultado->fetch();
        
       if(!$registro) {
-         $url = "error.php?msg_error=Error_Registro_Producto_inexistente";
+         $url = "error.php?msg_error=Error_Registro_Alumno_inexistente";
         header('Location:'.$url);
            
        } else {
