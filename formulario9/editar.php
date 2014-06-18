@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'conecta.php';
-require_once 'proceso_alta.php';
+require_once 'funciones.php';
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,7 +14,7 @@ function validarDatosRegistro() {
     $datos = Array();
     $datos[0] = (isset($_REQUEST['nombre_completo']))?
             $_REQUEST['nombre_completo']:"";
-    $datos[0] = limpiar($datos[0]);
+    $datos[0] = limpiarEntradaTexto($datos[0]);
     $datos[1] = (isset($_REQUEST['fecha_nacimiento']))?
             $_REQUEST['fecha_nacimiento']:"";
     $datos[2] = (isset($_REQUEST['ciclo']))?
@@ -52,17 +52,25 @@ if ($_SESSION['hayErrores']) {
     $nota_media = $_SESSION['datos'][3];
     $id = $_SESSION['id'];
 
-   
-    $consulta = "UPDATE alumno 
-    set nombre_completo = :nombre_completo, 
-    fecha_nacimiento= :fecha_nacimiento 
+   /*/
+    * 
+    *     fecha_nacimiento= :fecha_nacimiento, 
     ciclo = :ciclo,
     nota_media = :nota_media,
+    * 
+    *    if ($resultado->execute(array(":nombre_completo" => $nombre,
+        ":fecha_nacimiento" => $fecha_nacimiento, ":ciclo" => $ciclo, ":nota_media" => $nota_media,
+        ":id" => $id))) {
+    * 
+    */
+    
+    $consulta = "UPDATE alumno 
+    set nombre_completo = :nombre_completo
+
     WHERE id= :id";
     
     $resultado = $db->prepare($consulta);
     if ($resultado->execute(array(":nombre_completo" => $nombre,
-        ":fecha_nacimiento" => $fecha_nacimiento, ":ciclo" => $ciclo, ":nota_media" => $nota_media,
         ":id" => $id))) {
             unset($_SESSION['datos']);
             unset($_SESSION['errores']);
@@ -77,4 +85,7 @@ if ($_SESSION['hayErrores']) {
     $db = null;
 
 }
+    
+    
+  //  echo $fecha_nacimiento;
 ?>

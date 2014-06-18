@@ -15,14 +15,20 @@ function validarNombre($nombre){
      return preg_match($patron, $nombre);
 }
 
- /*function validarEdad($fecha_nacimiento) {
+function validarCiclo($ciclo){
+     $patron = "/^[a-zA-Z]{3,}([[:space:]][[:alpha:]]{2,})*$/";
+     //QUEDAMOS AKIIIII NO VA CON Ñ ni con palabras con tilde
+     return preg_match($patron, $ciclo);
+}
+
+ function validarEdad($fecha_nacimiento) {
    $date1 = new DateTime($fecha_nacimiento); 
    $date2 = new DateTime("now"); 
    $interval = $date1->diff($date2); 
    $diff = $interval->format('%y'); 
    return $diff;  
 }
-*/
+
 function validarNota($nota_media){
      if (is_numeric($nota_media)) {
          $nota = intval($nota_media);
@@ -48,7 +54,7 @@ if (!validarNombre($nombre)){
 } else {
     $errornombre="";
 }
-/*
+
 //Validar edad
 $edad = validarEdad($fecha_nacimiento);
 if ($edad<18){
@@ -58,9 +64,16 @@ if ($edad<18){
 }else {
     $errorfecha ="";//no hay error
 }
-*/
+
 //Validar ciclo
 $ciclo= limpiarEntradaTexto($ciclo);  
+if (!validarCiclo($ciclo)){
+    $errorciclo="(ERROR EN CICLO)";//Hay error
+    $hayErrores = True;
+    $errores .= "&errorciclo";
+} else {
+    $errorciclo="";
+}
 
 //Validar nota media
 $nota_media= limpiarEntradaTexto($nota_media);  
